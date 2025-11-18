@@ -1,17 +1,14 @@
 [
 	{
-		"id": "1",
-		"title": "Introduction to LLMs",
-		"body": "Large language models (LLMs) are..."
+		"page_content": "Large language models (LLMs) are...",
+		"metadata": {"id": 1, "title": "Introduction to LLMs"}
 	},
 	{
-		"id": "2",
-		"title": "Retrieval-Augmented Generation",
-		"body": "RAG combines retrieval with generation..."
+		"page_content": "RAG combines retrieval with generation...",
+		"metadata": {"id": 1, "title":"Retrieval-Augmented Generation"}
 	},
 	{
-		"id": "3",
-		"title": "Search Relevance Tuning",
-		"body": "Ranking documents requires scoring functions..."
+		"page_content": "Ranking documents requires scoring functions...",
+		"metadata": {"id": 3, "title": "Search Relevance Tuning"}
 	}
 ]

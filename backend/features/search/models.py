@@ -1,12 +1,7 @@
 from datetime import datetime
 
+from langchain_core.documents import Document
 from pydantic import BaseModel, Field
-
-
-class Document(BaseModel):
-    id: str
-    title: str
-    body: str
 
 
 class SearchResult(BaseModel):

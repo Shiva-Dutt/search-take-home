@@ -14,9 +14,6 @@ async def search(request: SearchRequest) -> list[SearchResult]:
 
     TODO (candidate):
     - Implement simple ranking logic over DOCUMENTS based on `request.query`.
-        Suggestions (not all required):
-        * Lowercase and tokenize the query.
-        * Compute a simple keyword score for each document based on matches in title/body
     - Return the top `request.top_k` results, sorted by score (highest first).
     - Populate the `reason` with a short explanation like:
         "matched title terms: ['rag']" or

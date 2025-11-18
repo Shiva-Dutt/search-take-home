@@ -10,5 +10,9 @@
 	{
 		"page_content": "Ranking documents requires scoring functions...",
 		"metadata": { "id": 3, "title": "Search Relevance Tuning" }
+	},
+	{
+		"page_content": "To bake bread, you need flour, yeast, and an oven!",
+		"metadata": {"id": 4, "title": "Baking Bread: How-To"}
 	}
 ]

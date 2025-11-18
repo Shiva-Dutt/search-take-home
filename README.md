@@ -11,9 +11,8 @@ In `backend/features/search/search_router.py`, you'll find a POST endpoint stub 
 Your job:
 
 - Implement ranking logic over a small in-memory corpus `DOCUMENTS`
-- A simple approach is fine (e.g. tokenize query --> match tokens in title/body --> compute a score).
+- Create and utilize FAISS vector database in `search/scoring.py`
 - Return the top `k` results as `SearchResult` objects.
-- Include a short "reason" string explaining why each document matched.
 - Keep the code clean, readable and maintainable.
 
 No external ML libraries are required.

@@ -15,8 +15,6 @@ Your job:
 - Return the top `k` results as `SearchResult` objects.
 - Keep the code clean, readable and maintainable.
 
-No external ML libraries are required.
-
 ### 2. Frontend: Search UI
 
 The file `frontend/src/features/search/SearchPage.tsx` contains a skeleton UI with TODOs.
@@ -50,6 +48,7 @@ frontend/
 You should only need to modify:
 
 - `backend/features/search/search_router.py`
+- `backend/features/search/scoring.py`
 - `frontend/src/features/search/SearchPage.tsx`
 
 ## Running the App

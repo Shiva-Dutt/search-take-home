@@ -3,7 +3,7 @@ import os
 from typing import Iterable, List, Tuple
 
 import anyio
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
 from langchain_core.language_models import BaseLanguageModel

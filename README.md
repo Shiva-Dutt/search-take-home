@@ -1,3 +1,6 @@
+Note: Config .env file with HUGGINGFACEHUB_API_TOKEN 
+
+
 # Search Take-Home Assignment
 
 This repo contains a small FastAPI backend and a TypeScript frontend. Your task is to implement:

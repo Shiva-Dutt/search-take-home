@@ -6,3 +6,5 @@ uvicorn>=0.38.0
 
 faiss-cpu
 langchain[huggingface]
+langchain-huggingface>=1.0.0
+sentence-transformers

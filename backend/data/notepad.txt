@@ -5,3 +5,31 @@ Edit this file while the server is running and refresh the stream endpoint to se
 Line 1
 Line 2
 Line 3
+
+asfsdf
+
+This is backend/data/notepad.txt.
+
+Edit this file while the server is running and refresh the stream endpoint to see different output.
+
+Line 1
+Line 2
+Line 3
+
+asfsdfThis is backend/data/notepad.txt.
+
+Edit this file while the server is running and refresh the stream endpoint to see different output.
+
+Line 1
+Line 2
+Line 3
+
+asfsdfThis is backend/data/notepad.txt.
+
+Edit this file while the server is running and refresh the stream endpoint to see different output.
+
+Line 1
+Line 2
+Line 3
+
+asfsdfThis is backend/data/notepad.txt.

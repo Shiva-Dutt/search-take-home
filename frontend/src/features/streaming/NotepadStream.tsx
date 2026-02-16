@@ -19,7 +19,7 @@ export function NotepadStream() {
         onDone: () => setStatus("done"),
         onError: () => setStatus("error"),
       },
-      { path: "data/notepad.txt", chunkSize: 256, delayMs: 10 },
+      { path: "data/notepad.txt", chunkSize: 15, delayMs: 10 },
     );
   }, []);
 

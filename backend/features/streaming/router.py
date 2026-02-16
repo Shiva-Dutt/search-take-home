@@ -33,23 +33,14 @@ async def stream_notepad(
         default=str(Path("data/notepad.txt")),
         description="Path to the .txt file to stream. Relative paths are resolved from the backend working directory.",
     ),
-    chunk_size: int = Query(default=256, ge=1, le=8192),
-    delay_ms: int = Query(default=25, ge=0, le=5000),
+    chunk_size: int = Query(default=10, ge=1, le=8192),
+    delay_ms: int = Query(default=30, ge=0, le=5000),
 ) -> StreamingResponse:
     """Stream a .txt file to the frontend as Server-Sent Events (SSE).
-
-    Take-home objective:
-    - Implement SSE streaming from the provided `.txt` file.
-    - Stream incremental chunks so the UI can render as data arrives.
-    - Handle missing files and invalid params cleanly.
-
-    Notes:
-    - The function currently returns a stub response (non-streaming) so candidates
-      can implement the actual streaming logic.
+    
+    - Streams incremental chunks so the UI can render as data arrives.
+    - Handles missing files and invalid params cleanly.
     """
-
-    # Keep imports referenced for candidates. These are unused until implemented.
-    _ = (asyncio, AsyncIterator, chunk_size, delay_ms)
 
     file_path = Path(path)
     if not file_path.is_absolute():
@@ -59,10 +50,25 @@ async def stream_notepad(
         raise HTTPException(status_code=404, detail=f"File not found: {file_path}")
 
     async def event_generator() -> AsyncIterator[bytes]:
-        # TODO (candidate): yield SSE events that stream `file_path` progressively.
-        yield _sse(
-            "TODO: implement SSE streaming in backend/features/streaming/router.py",
-            event="todo",
-        ).encode("utf-8")
+        """Yield SSE events that stream `file_path` progressively."""
+        async def _read_file() -> AsyncIterator[str]:
+            with file_path.open("r", encoding="utf-8") as f:
+                while True:
+                    chunk = f.read(chunk_size)
+                    if not chunk:
+                        break
+                    yield chunk
+
+        # Send a one-time metadata event so the frontend can display the source.
+        meta_payload = f"path={file_path}; chunk_size={chunk_size}; delay_ms={delay_ms}"
+        yield _sse(meta_payload, event="meta").encode("utf-8")
+
+        async for chunk in _read_file():
+            yield _sse(chunk, event="chunk").encode("utf-8")
+            if delay_ms > 0:
+                await asyncio.sleep(delay_ms / 1000)
+
+        # Signal completion so the client can update status and close the stream.
+        yield _sse("done", event="done").encode("utf-8")
 
     return StreamingResponse(event_generator(), media_type="text/event-stream")

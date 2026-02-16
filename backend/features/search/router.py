@@ -21,6 +21,9 @@ async def search(request: SearchRequest) -> list[SearchResult]:
     if not query:
         raise HTTPException(status_code=400, detail="Query must not be empty.")
 
-    # TODO: implement ranking
-    results: list[SearchResult] = []  # await search_documents(...)
+    results: list[SearchResult] = await search_documents(
+        query=query,
+        documents=DOCUMENTS,
+        top_k=request.top_k,
+    )
     return results
